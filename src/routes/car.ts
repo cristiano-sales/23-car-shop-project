@@ -10,8 +10,6 @@ const carModel: CarModel = new CarModel();
 const carService: CarService = new CarService(carModel);
 const carController: CarController = new CarController(carService);
 
-router.post('/', validateCarFields, (req, res) => (
-  carController.create(req, res)
-));
+router.post('/', validateCarFields, carController.create);
 
 export default router;
