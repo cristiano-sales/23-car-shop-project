@@ -11,5 +11,6 @@ const carService: CarService = new CarService(carModel);
 const carController: CarController = new CarController(carService);
 
 router.post('/', validateCarFields, carController.create);
+router.get('/', carController.findAll);
 
 export default router;

@@ -1,4 +1,4 @@
-import { Response } from 'express';
+import { Response, Request } from 'express';
 import { ICar } from '../interfaces/ICar';
 import IService from '../interfaces/IService';
 import { IReqBody } from '../interfaces/IReqBody';
@@ -15,6 +15,15 @@ class CarController {
     const carCreated: ICar = await this._service.create(car);
 
     res.status(201).json(carCreated);
+  };
+
+  public findAll = async (
+    _request: Request,
+    response: Response,
+  ): Promise<void> => {
+    const allCars: Array<ICar> = await this._service.findAll();
+
+    response.status(200).json(allCars);
   };
 }
 

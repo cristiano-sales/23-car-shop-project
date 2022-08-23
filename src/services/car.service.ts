@@ -7,6 +7,9 @@ class Car {
   public async create(object: ICar): Promise<ICar> {
     return this._model.create(object);
   }
+  public async findAll(): Promise<Array<ICar>> {
+    return this._model.read();
+  }
 }
 
 export default Car;
